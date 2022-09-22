@@ -37,12 +37,12 @@ body {
     margin-bottom: 10px;
   }
 
-  “h1, h2, h3, h4, h5, h6 {
+  h1, h2, h3, h4, h5, h6 {
     line-height: 1;
   }
   
   h1 {
-  font-size: 3em;
+  font-size: 2em;
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
@@ -60,4 +60,8 @@ h2 {
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+}
+
+li {
+  list-style: none;
 }
