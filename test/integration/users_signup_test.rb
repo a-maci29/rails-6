@@ -1,18 +1,14 @@
-require 'test helper'
+require 'test_helper'
 
-class UserSignupTest < ActionDispatch::IntegrationTest
+class UsersLoginTest < ActionDispatch::IntegrationTest
 
-    test "valid signup information" do
-        get signup_path
-    assert_difference 'User.count', 1 do
-        post users_path, params: { user: {
-            name: "Example User",
-            email: "sample@sample.com",
-            password: "password"
-            password_confirmation: "password" } }
-    end
-    follow_redirect!
-    assert_template 'users/show'
-    assert_not flash.FILL_IN
-    end
+  test "login with invalid information" do
+    get login_path
+    assert_template 'sessions/new'
+    post login_path, params: { session: { email: "", password: "" } }
+    assert_template 'sessions/new'
+    assert_not flash.empty?
+    get root_path
+    assert flash.empty?
+  end
 end
