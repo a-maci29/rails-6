@@ -12,6 +12,8 @@ gem 'bcrypt', '3.1.13'
 
 gem 'bootstrap-sass', "3.4.1"
 
+gem 'webpacker', '~> 5.0'
+
 gem 'sass-rails'
 
 gem 'rails-controller-testing'
