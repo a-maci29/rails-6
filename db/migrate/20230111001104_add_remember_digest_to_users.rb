@@ -3,3 +3,5 @@ class AddRememberDigestToUsers < ActiveRecord::Migration[7.0]
     add_column :users, :reminder_digest, :string
   end
 end
+
+
