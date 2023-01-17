@@ -13,7 +13,7 @@ module SessionsHelper
     ##Returns the current logged in user (if any)
     ## If the user exists and the session is valid, returns the user as @current_user, if not, returns nil
 
-    
+
     # def current_user
     #     return nil unless session[:user_id].present?
     #     @current_user ||= User.find_by(id: session[:user_id])
@@ -37,7 +37,14 @@ module SessionsHelper
         current_user.present?
     end
 
+    def forget(user)
+        user.forget
+        cookies.delete(:user_id)
+        cookies.delete(:remember_token)
+    end
+
     def log_out
+    forget(current_user)
     reset_session
     @current_user = nil
     end
