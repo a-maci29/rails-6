@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
     include SessionsHelper
 
+default_form_builder TestBuilder
+
     before_action :require_login
 
     def require_login
