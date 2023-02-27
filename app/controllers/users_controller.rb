@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   before_action :logged_in_user, only: [:index, :edit, :update]
   before_action :correct_user, only: [:edit, :update]
+  skip_before_action :require_login, only: [:new]
 
   def index
     @users = Users.all
@@ -52,7 +53,7 @@ class UsersController < ApplicationController
   def logged_in_user
     unless logged_in?
       flash[:danger] = "Please log in"
-      redirect_to login_url
+      # redirect_to login_url
     end
   end
 

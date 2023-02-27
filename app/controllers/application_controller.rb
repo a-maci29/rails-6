@@ -10,7 +10,7 @@ default_form_builder TestBuilder
        if logged_in?
             true
         else
-            redirect_to login_path
+            redirect_to signup_path
         end
     end
 end
