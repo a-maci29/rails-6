@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       log_in user
       redirect_to forwarding_url || user
     else
-      flash[:danger] = 'Invalid email/password combination'
+      flash.now[:danger] = 'Invalid email/password combination'
       render 'new'
     end
   end

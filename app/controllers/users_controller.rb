@@ -33,7 +33,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user.params)
+    binding.pry
+    if @user.update(user_params)
        ### Successful update ^
        flash[:success] = "Profile updated"
        redirect_to @user
@@ -60,6 +61,6 @@ class UsersController < ApplicationController
   ### Confirms correct user
     def correct_user
       @user = User.find(params[:id])
-      redirect_to(root_url) unless @user = current_user
+      redirect_to(root_url) unless @user == current_user
     end
 end

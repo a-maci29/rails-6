@@ -39,7 +39,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 
   test "login without remembering" do
     log_in_as(@user, remember_me: '1') #why as a string?
-    long_in_as(@user, remember_me: '0')
+    log_in_as(@user, remember_me: '0')
     assert cookies[:remember_token].blank?
   end
 end
