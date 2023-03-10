@@ -32,6 +32,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  ##TODO: Non-admins should be able to update their own accounts
   def update
     if @user.update(user_params)
        ### Successful update ^
@@ -41,6 +42,14 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
+
+  ###TODO: only admins should be able to destroy user accounts
+  ####TODO: admins should not be able to destoy other admins
+def destroy
+  User.find(params[:id]).destroy
+  flash[:success] = "User deleted"
+  redirect_to users_url
+end
 
   private
 
