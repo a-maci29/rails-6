@@ -48,7 +48,7 @@
 
       ## link_to "user's name", user_instance, method: :get
 %>
-      <%= link_to("delete!!", user, method: :delete, data: { confirm: "You sure?" }) %>
+      <%= button_to "delete", user_path(user.id), method: :delete, data: { confirm: "You sure?" } %>
        
   </li>
 <% end %> 
